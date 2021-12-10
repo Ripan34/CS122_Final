@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link
+    rel="stylesheet"
+    type="text/css"
+    href="{{ url_for('static',filename='landingPage.css') }}"
+  />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+
+    <title>Final Project</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar navbar-light" style="background-color: white;">
+        <a style="margin-left: 1vw;" class="navbar-brand" href="/">SJSU CS122</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="/create">Add New Student</a>
+          </ul>
+        </div>
+      </nav>
+      <div id="container">
+    <h1>CS122 Grade Book</h1>
+    <table>
+        <tr>
+          <th>Name</th>
+          <th>SJSU ID</th>
+          <th>Homework</th>
+          <th>Exam</th>
+        </tr>
+        {% for student in data %}
+            <tr>
+                <th><a href="/student/{{student.id}}">{{student.name}}</a></th>
+                <th>{{student.sjsuid}}</th>
+                <th>{{student.hw}}</th>
+                <th>{{student.exam}}</th>
+            </tr>
+        {% endfor %}
+      </table>
+      <h1>Correlation bewteen homework and exam performance</h1>
+      <img src="./static/plot.png">
+    </div>
+</body>
+</html>

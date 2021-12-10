@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+      <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static',filename='addStudent.css') }}"
+    />
+    <title>Final Project</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar navbar-light" style="background-color: white;">
+        <a style="margin-left: 1vw;" class="navbar-brand" href="/">SJSU CS122</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="/create">Add New Student</a>
+          </ul>
+        </div>
+      </nav>
+<div id="container">
+    <form method="POST" action="/create">
+        <h1>Add a New Student</h1>
+        <div class="form-group">
+            <label for="name">Student's name</label>
+            <input type="text" id="name" class="form-control" name="name" placeholder="Student's name" required/>
+          </div>
+          <div class="form-group">
+            <label for="sjsuid">SJSU ID</label>
+            <input type="text" id="sjsuid" class="form-control" name="sjsuid" placeholder="SJSU ID" required/>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" class="form-control" name="email" placeholder="xyz@sjsu.edu" required/>
+          </div>
+          <div class="form-group">
+            <label for="year">Year</label>
+            <input type="text" id="year" class="form-control" name="year" placeholder="Freshman, sophomore, Junior, Senior, or Grduate" required/>
+          </div>
+          <div class="form-group">
+            <label for="hw">Homework Score</label>
+            <input type="text" id="hw" class="form-control" name="hw" placeholder="Homework Score" required/>
+          </div>
+          <div class="form-group">
+            <label for="exam">Exam Score</label>
+            <input type="text" id="exam" class="form-control" name="exam" placeholder="Exam Score" required/>
+          </div>
+          <button class="btn btn-primary" type="submit">Submit</button>
+    </form>
+</div>
+</body>
+</html>
