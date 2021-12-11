@@ -1,14 +1,15 @@
-import pandas as pd
-import seaborn as sns
+import pandas as pd #import pandas for dataframe
+import seaborn as sns #import seaborn for plotting
 import matplotlib.pyplot as plt
-from database import Database #Database class to store users
+from database import Database #Database class to store students
 
 
 #to plot the relation between hw and exam scores
 def plotData():
-    dataBase = Database()
-    studentList = dataBase.getAll()
+    dataBase = Database() #initaialize the database from database class
+    studentList = dataBase.getAll() #fetch all the students
     data = []
+    #make a list of students objects fethced from database
     for student in studentList:
         item = {
         "id": student[0],
@@ -18,11 +19,13 @@ def plotData():
         "exam": student[4],        
         }
         data.append(item)
-    df = pd.DataFrame.from_dict(data)
-    df[["hw", "exam"]] = df[["hw", "exam"]].apply(pd.to_numeric)
+
+    df = pd.DataFrame.from_dict(data) #create a dataframe from pandas with data of all students
+    #convert the hw and exam scores column to numeric values for plotting
+    df[["hw", "exam"]] = df[["hw", "exam"]].apply(pd.to_numeric) 
+    #lmplot to visualize the relationship between hw and exam scores
     sns.lmplot(data=df,
            x="hw",
-           y="exam").savefig("plot.png")
-    plt.savefig("./static/plot.png")
-
-plotData()
+           y="exam")
+           
+    plt.savefig("./static/plot.png") #save the plot as a PNG file
